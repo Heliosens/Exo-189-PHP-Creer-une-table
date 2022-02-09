@@ -61,7 +61,46 @@
 
 // TODO Votre code ici.
 
+require "connPDO.php";
+
+$pdo = new connPDO();
+$connect = $pdo->conn();
+
 try {
-    ...
+    $sql = "
+        CREATE TABLE user (
+            id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(50) NOT NULL,
+            firstname VARCHAR(50) NOT NULL,
+            email VARCHAR(100) NOT NULL UNIQUE,
+            password VARCHAR(100) NOT NULL,
+            adress VARCHAR(255) NOT NULL,
+            cp SMALLINT UNSIGNED,
+            country VARCHAR(50) NOT NULL,
+            date_join DATETIME
+        )
+    ";
+    $connect->exec($sql);
+    echo "table user create";
 }
-catch...
+catch(PDOException $e){
+    echo "user table creation failed : " . $e->getMessage();
+}
+
+
+try {
+    $sql = "
+        CREATE TABLE product (
+            id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            title VARCHAR(50) NOT NULL,
+            price DOUBLE UNSIGNED,
+            shortDescription VARCHAR(255) NOT NULL,
+            description TEXT
+        )
+    ";
+    $connect->exec($sql);
+    echo "table user create";
+}
+catch(PDOException $e){
+    echo "user table creation failed : " . $e->getMessage();
+}
