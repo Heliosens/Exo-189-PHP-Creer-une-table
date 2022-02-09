@@ -99,8 +99,8 @@ try {
         )
     ";
     $connect->exec($sql);
-    echo "table user create";
+    echo "table product create";
 }
 catch(PDOException $e){
-    echo "user table creation failed : " . $e->getMessage();
+    echo "product table creation failed : " . $e->getMessage();
 }
