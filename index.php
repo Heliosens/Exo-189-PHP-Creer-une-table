@@ -77,7 +77,8 @@ try {
             adress VARCHAR(255) NOT NULL,
             cp SMALLINT UNSIGNED,
             country VARCHAR(50) NOT NULL,
-            date_join DATETIME
+            date_join DATETIME DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE (email)
         )
     ";
     $connect->exec($sql);

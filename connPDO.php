@@ -12,7 +12,7 @@ class connPDO
         $this->setServer('localhost');
         $this->setUser('root');
         $this->setPassword('');
-        $this->setDbName('');
+        $this->setDbName('table_test_php');
     }
 
     /**
